@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
+    textAlign: "center",
   },
 }));
 
@@ -67,9 +68,12 @@ export default function ShareSpot() {
               <img
                 src={process.env.PUBLIC_URL + "/images/LogoWhiteBack.JPG"}
                 className={classes.InfoWindowLogo}
+                alt="Company Logo"
               />
               <Typography>Av.XXXX, Casa#XXXX, Catia la Mar, Vargas</Typography>
-              <Button className={classes.InfoWindowBtn}>Reserva tu cita</Button>
+              <Button href={"/appointments"} className={classes.InfoWindowBtn}>
+                Reserva tu cita
+              </Button>
             </div>
           </InfoWindow>
         </GoogleMap>

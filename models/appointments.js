@@ -2,17 +2,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const appointments = new Schema({
-  description: {
+  email: {
     type: String,
     trim: true,
   },
 
-  location: {
-    type: Array,
+  appointmentType: {
+    type: String,
     trim: true,
   },
-
-  category: {
+  date: {
     type: String,
     trim: true,
   },

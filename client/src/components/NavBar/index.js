@@ -107,20 +107,24 @@ export default function NavBar(props) {
       <Toolbar id="back-to-top-anchor">
         <Container className={classes.navBarContainer}>
           <Grid container alignItems="center">
-            <Button className={classes.navBarBtn} variant="h6">
-              Servicios
+            <Button className={classes.navBarBtn} variant="h6" href={"/"}>
+              Inicio
             </Button>
             <Divider orientation="vertical" flexItem />
             <Button className={classes.navBarBtn} variant="h6">
               Servicios
             </Button>
             <Divider orientation="vertical" flexItem />
-            <Button className={classes.navBarBtn} variant="h6">
-              Servicios
+            <Button
+              className={classes.navBarBtn}
+              variant="h6"
+              href={"/appointments"}
+            >
+              Citas
             </Button>
             <Divider orientation="vertical" flexItem />
-            <Button className={classes.navBarBtn} variant="h6">
-              Servicios
+            <Button className={classes.navBarBtn} variant="h6" href={"/signup"}>
+              Registrate
             </Button>
           </Grid>
         </Container>
