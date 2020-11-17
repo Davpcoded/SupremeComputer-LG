@@ -16,27 +16,20 @@ router.get("/users", function (req, res) {
   });
 });
 
-router.get("/appointments", function (req, res) {
-  db.Appointments.find({}, function (err, data) {
-    if (err) console.log(err);
-    else {
-      console.log(data);
-      res.send(data);
-    }
-  });
-});
-
-router.post("/appointments", ({ body }, res) => {
-  db.Appointments.create(body)
-    .then((dbUser) => {
-      res.json(dbUser);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json(err);
+router.post("/appointments", (req, res) => {
+  db.Appointments.create(req.body)
+    .then((dbModel) => res.json(dbModel))
+    .catch((err) => res.status(422).json(err));
+}),
+  router.get("/appointments", function (req, res) {
+    db.Appointments.find({}, function (err, data) {
+      if (err) console.log(err);
+      else {
+        console.log(data);
+        res.send(data);
+      }
     });
-});
-
+  });
 router.post("/", passport.authenticate("local"), (req, res) => {
   res.json({
     firstName: req.user.firstName,

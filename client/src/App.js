@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Appointments from "./pages/Appointments";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route exact path="/appointments">
             <Appointments />
+          </Route>
+          <Route exact path="/admin">
+            <Admin />
           </Route>
         </Switch>
       </div>

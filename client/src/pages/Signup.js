@@ -123,13 +123,13 @@ export default function Signup() {
               </Grid>
             </Grid>
             <Button
-              /*  type="submit" */
+               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
               onClick={register}
-              /* href="/" */
+              href="/services"
             >
               Sign Up
             </Button>
