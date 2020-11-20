@@ -30,6 +30,7 @@ router.post("/appointments", (req, res) => {
       }
     });
   });
+
 router.post("/", passport.authenticate("local"), (req, res) => {
   res.json({
     firstName: req.user.firstName,

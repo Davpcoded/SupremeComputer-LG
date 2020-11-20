@@ -15,10 +15,6 @@ const appointments = new Schema({
     type: String,
     trim: true,
   },
-
-  boolean: Boolean,
-
-  array: Array,
 });
 
 const Appointments = mongoose.model("Appointments", appointments);
