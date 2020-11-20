@@ -1,8 +1,7 @@
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { createMuiTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+import { DateTimePicker } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -22,6 +21,55 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Axios from "axios";
+
+const defaultMaterialTheme = createMuiTheme({
+  overrides: {
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: "#ffbf00",
+      },
+    },
+    MuiPickerDTTabs: {
+      tabs: {
+        backgroundColor: "#ffbf00",
+      },
+    },
+    MuiButton: {
+      textPrimary: {
+        color: "Black",
+      },
+    },
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+        //backgroundColor: "white",
+        //color: "white",
+      },
+    },
+    MuiPickersDay: {
+      day: {
+        color: "black",
+      },
+      daySelected: {
+        backgroundColor: "#ffbf00",
+      },
+      dayDisabled: {
+        color: "black",
+      },
+      current: {
+        color: "#ffbf00",
+      },
+    },
+    MuiPickersModal: {
+      dialogAction: {
+        color: "#ffbf00",
+      },
+    },
+  },
+  MuiTabsflexContainer: {
+    backgroundColor: "#ffbf00",
+  },
+});
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -144,29 +192,15 @@ export default function Appointments() {
                 </CssTextField>
               </Grid>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                  className={classes.inputColor}
-                  margin="normal"
-                  id="date-picker-dialog"
-                  label="Fecha"
-                  format="MM/dd/yyyy"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    "aria-label": "change date",
-                  }}
-                />
-                <KeyboardTimePicker
-                  className={classes.inputColor}
-                  margin="normal"
-                  id="time-picker"
-                  label="Hora"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    "aria-label": "change time",
-                  }}
-                />
+                <ThemeProvider theme={defaultMaterialTheme}>
+                  <DateTimePicker
+                    className={classes.inputColor}
+                    label="Elige Fecha y Hora"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    animateYearScrolling={false}
+                  />
+                </ThemeProvider>
               </MuiPickersUtilsProvider>
             </Grid>
             <Button
