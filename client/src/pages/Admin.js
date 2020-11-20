@@ -86,32 +86,7 @@ export default function Admin() {
     <div>
       <LogoIntroBanner />
       <NavBar />
-      <Card className={classes.root} variant="outlined">
-        <CardContent>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Word of the Day
-          </Typography>
-          <Typography variant="h5" component="h2">
-            be{bull}nev{bull}o{bull}lent
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-            {console.log(appointments)}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -129,16 +104,23 @@ export default function Admin() {
                 <StyledTableCell component="th" scope="appointment">
                   {appointment.email}
                 </StyledTableCell>
-                {/*  <StyledTableCell align="right">{appointment.calories}</StyledTableCell>
-                <StyledTableCell align="right">{appointment.fat}</StyledTableCell>
-                <StyledTableCell align="right">{appointment.carbs}</StyledTableCell>
-                <StyledTableCell align="right">{appointment.protein}</StyledTableCell> */}
+                <StyledTableCell align="right">
+                  {appointment.date}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {appointment.fat}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {appointment.appointmentType}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {appointment.protein}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Footer />
     </div>
   );
 }
