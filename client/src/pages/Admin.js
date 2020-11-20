@@ -116,23 +116,23 @@ export default function Admin() {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-              <StyledTableCell align="right">Calories</StyledTableCell>
-              <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-              <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-              <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+              <StyledTableCell>Cliente</StyledTableCell>
+              <StyledTableCell align="right">Fecha</StyledTableCell>
+              <StyledTableCell align="right">Hora</StyledTableCell>
+              <StyledTableCell align="right">Motivo de Visita</StyledTableCell>
+              <StyledTableCell align="right">Completado</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
+            {appointments.map((appointment) => (
+              <StyledTableRow key={appointment.email}>
+                <StyledTableCell component="th" scope="appointment">
+                  {appointment.email}
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                {/*  <StyledTableCell align="right">{appointment.calories}</StyledTableCell>
+                <StyledTableCell align="right">{appointment.fat}</StyledTableCell>
+                <StyledTableCell align="right">{appointment.carbs}</StyledTableCell>
+                <StyledTableCell align="right">{appointment.protein}</StyledTableCell> */}
               </StyledTableRow>
             ))}
           </TableBody>
