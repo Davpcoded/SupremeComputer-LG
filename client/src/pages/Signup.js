@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#ffbf00",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -33,6 +33,18 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#ffbf00",
+  },
+  inputColor: {
+    "& .MuiInput-underline:after": {
+      borderBottom: "2px solid #ffbf00",
+    },
+    "& .MuiInputBase-root": {
+      color: "black",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "#ffbf00",
+    },
   },
 }));
 
@@ -74,23 +86,25 @@ export default function Signup() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  margin="normal"
+                  className={classes.inputColor}
                   autoComplete="fname"
                   name="firstName"
-                  variant="outlined"
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="Nombre"
                   onChange={(e) => setRegisterFirstName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  variant="outlined"
+                  margin="normal"
+                  className={classes.inputColor}
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label="Apellido"
                   name="lastName"
                   autoComplete="lname"
                   onChange={(e) => setRegisterLastName(e.target.value)}
@@ -98,11 +112,12 @@ export default function Signup() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
+                  margin="normal"
+                  className={classes.inputColor}
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Correo Electronico"
                   name="email"
                   autoComplete="email"
                   onChange={(e) => setRegisterEmail(e.target.value)}
@@ -110,11 +125,12 @@ export default function Signup() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
+                  margin="normal"
+                  className={classes.inputColor}
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Contraseña"
                   type="password"
                   id="password"
                   autoComplete="current-password"
@@ -123,7 +139,7 @@ export default function Signup() {
               </Grid>
             </Grid>
             <Button
-               type="submit"
+              type="submit"
               fullWidth
               variant="contained"
               color="primary"
