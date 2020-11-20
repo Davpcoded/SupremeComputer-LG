@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#ffbf00",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -39,6 +39,19 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#ffbf00",
+  },
+  inputColor: {
+    "& .MuiInput-underline:after": {
+      borderBottom: "2px solid #ffbf00",
+    },
+    "& .MuiInputBase-root": {
+      color: "black",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "#ffbf00",
+    },
+    width: "100%",
   },
 }));
 
@@ -98,15 +111,15 @@ export default function Appointments() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Reserva
+            Reservar Cita
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  className={classes.inputColor}
                   autoComplete="email"
                   name="email"
-                  variant="outlined"
                   required
                   fullWidth
                   id="email"
@@ -116,6 +129,7 @@ export default function Appointments() {
               </Grid>
               <Grid item xs={12}>
                 <CssTextField
+                  className={classes.inputColor}
                   select
                   label="A que debemos tu visita?"
                   value={appointmentType}
@@ -131,6 +145,7 @@ export default function Appointments() {
               </Grid>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
+                  className={classes.inputColor}
                   margin="normal"
                   id="date-picker-dialog"
                   label="Date picker dialog"
@@ -142,6 +157,7 @@ export default function Appointments() {
                   }}
                 />
                 <KeyboardTimePicker
+                  className={classes.inputColor}
                   margin="normal"
                   id="time-picker"
                   label="Time picker"
@@ -162,15 +178,8 @@ export default function Appointments() {
               onClick={registerAppointment}
               /* href="/" */
             >
-              Sign Up
+              Reservar Cita
             </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
           </form>
         </div>
         <Box mt={5}></Box>
