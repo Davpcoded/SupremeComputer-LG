@@ -148,7 +148,7 @@ export default function Appointments() {
                   className={classes.inputColor}
                   margin="normal"
                   id="date-picker-dialog"
-                  label="Date picker dialog"
+                  label="Fecha"
                   format="MM/dd/yyyy"
                   value={selectedDate}
                   onChange={handleDateChange}
@@ -160,7 +160,7 @@ export default function Appointments() {
                   className={classes.inputColor}
                   margin="normal"
                   id="time-picker"
-                  label="Time picker"
+                  label="Hora"
                   value={selectedDate}
                   onChange={handleDateChange}
                   KeyboardButtonProps={{
