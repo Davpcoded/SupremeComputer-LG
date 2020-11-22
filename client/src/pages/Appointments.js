@@ -134,7 +134,7 @@ export default function Appointments() {
         appointmentType: appointmentType,
         date: selectedDate,
       },
-      url: "http://localhost:3001/api/appointments",
+      url: "/api/appointments",
     })
       .then((res) => console.log(res))
       .catch((error) => alert(error));
