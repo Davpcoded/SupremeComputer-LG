@@ -11,6 +11,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Checkbox from "@material-ui/core/Checkbox";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -35,10 +36,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -59,18 +56,10 @@ const useStyles = makeStyles({
   },
 });
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
 export default function Admin() {
   const [appointments, setAppointments] = React.useState([]);
+  const [checked, setChecked] = React.useState(true);
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   React.useEffect(() => {
     loadAppointments();
@@ -81,7 +70,11 @@ export default function Admin() {
       .then((res) => setAppointments(res.data))
       .catch((err) => console.log(err));
   }
-  console.log(appointments);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+  /* {console.log(appointments)}; */
   return (
     <div>
       <LogoIntroBanner />
@@ -108,13 +101,20 @@ export default function Admin() {
                   {appointment.date}
                 </StyledTableCell>
                 <StyledTableCell align="right">
+                  {" "}
+                  {/* this lane displays nothing but makes the row of heading be large enough to fir with the content of the table will stay here please fix later improve performance */}
                   {appointment.fat}
                 </StyledTableCell>
                 <StyledTableCell align="right">
                   {appointment.appointmentType}
                 </StyledTableCell>
+
                 <StyledTableCell align="right">
-                  {appointment.protein}
+                  <Checkbox
+                    checked={checked}
+                    onChange={handleChange}
+                    inputProps={{ "aria-label": "primary checkbox" }}
+                  />
                 </StyledTableCell>
               </StyledTableRow>
             ))}
